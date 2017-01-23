@@ -12,26 +12,25 @@ export default class Office extends React.Component {
 
 	showQR(e){
 
-		e.target.nextElementSibling.innerHTML = `<a href=${this.props.office.qr_code_link}><img src=${this.props.office.qr_code_link} /></a>`
-		e.target.nextElementSibling.style.display = 'block'
-		var meRect = e.target.getBoundingClientRect()
-		var qrRect = e.target.nextElementSibling.getBoundingClientRect()
-		var doc = document.documentElement;
-		var left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)
-		var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
-		var boxPos = {};
-
-		boxPos.left = (e.pageX - left);
-    boxPos.top = (e.pageY - top - qrRect.height);
-
-		// 		boxPos.left = (e.pageX - $(window).scrollLeft());
-		// 		boxPos.top = (e.pageY - $(window).scrollTop() - $(".info-box").height());
-		e.target.nextElementSibling.style.left = boxPos.left + "px"
-		e.target.nextElementSibling.style.top = boxPos.top + "px"
+		document.getElementById('qr_code_box').innerHTML = `<a href=${this.props.office.qr_code_link}><img src=${this.props.office.qr_code_link} /></a>`
+		// e.target.nextElementSibling.style.display = 'block'
+		// var meRect = e.target.getBoundingClientRect()
+		// var qrRect = e.target.nextElementSibling.getBoundingClientRect()
+		// var doc = document.documentElement;
+		// var left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)
+		// var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+		// var boxPos = {};
+		//
+		// boxPos.left = (e.pageX - left - qrRect.width);
+    // boxPos.top = (e.pageY - top - qrRect.height);
+		//
+		// e.target.nextElementSibling.style.left = boxPos.left + "px"
+		// e.target.nextElementSibling.style.top = boxPos.top + "px"
 		}
 
 	leaveQR(e){
-		e.target.nextElementSibling.style.display = 'none'
+		$('#qr_code_box').empty();
+		// e.target.nextElementSibling.style.display = 'none'
   }
 
 
@@ -58,12 +57,15 @@ export default class Office extends React.Component {
 						</a>
 					</span>
 					<span className="col-xs-8 text-center"><h5>{officeType} Office - <a href={telHref}>{this.props.office.phone}</a></h5></span>
+					<div className="qr-box col-xs-2" id="qr_code_box"></div>
 					<span className="col-xs-2">
 						<span className="pull-right card-link">{this.props.office.distance}mi</span>
 						<a className="pull-right card-link myAddressCard" href={this.props.office.v_card_link}>
 							<i className="fa fa-address-card officeIcons"></i>
 						</a>
-						{this.props.office.qr_code_link ? <div className="pull-right card-link QRcode"><i onMouseOver={this.showQR.bind(this)} onMouseLeave={this.leaveQR.bind(this)} className="fa fa-qrcode"></i><div className="qr-box"></div></div> : null}
+						<div className="pull-right card-link QRcode">
+							<a href={this.props.office.qr_code_link}><i onMouseOver={this.showQR.bind(this)} onMouseLeave={this.leaveQR.bind(this)} className="fa fa-qrcode"></i></a>
+						</div>
 					</span>
 				</div>
 				<div id={officeInfoId} className="collapse">

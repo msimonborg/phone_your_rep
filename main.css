@@ -1,10 +1,11 @@
 .qr-box{
-	display: none;
+	/*display: none;*/
 	position: fixed;
 	width: 100px;
-	left: 0;
-	top: 0;
-	background-color: azure;
+	left: 10%;
+	top: 10%;
+	background-color: white;
+	max-width: 10%;
 	z-index: 9999;
 }
 .offices{
