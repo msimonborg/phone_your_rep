@@ -1,8 +1,12 @@
 module.exports = {
-    entry: "./script",
+	context: __dirname,
+    entry: {
+		bundle: "./public/script/index.js",
+		widget: "./public/widget/script/index.js"
+	},
     output: {
         path: __dirname,
-        filename: "bundle.js"
+        filename: "[name].js"
     },
     module: {
       loaders: [

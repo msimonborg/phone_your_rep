@@ -7,7 +7,7 @@ nav {
 	/* background: #30415D; */
 }
 nav{
-	background-image: url(header.png);
+	background-image: url('../img/header.png');
 	background-position: center;
 	background-size: cover;
 }

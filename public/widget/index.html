@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Phone Your Rep</title>
+
+	<!-- Facebook Meta -->
+	<!-- Fix for Deployment -->
+	<meta property="og:url" content="#" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Phone Your Rep" />
+	<meta property="og:description" content="Generate and easily save the contact information for your Congressmembers directly to your phone." />
+	<meta property="og:image" content="/static/img/uscapitol.png" />
+
+	<!-- React with Addons  -->
+	<script src="https://unpkg.com/react@15/dist/react-with-addons.min.js"></script>
+	<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+	<!-- JQuery and Google Maps API-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN47V710PFxcFAGY3Gx6hipg7P3CWcQn8&libraries=places&v=3"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+
+	<!-- GeoComplete -->
+	<script src="static/js/jquery.geocomplete.min.js"></script>
+
+	<!-- Fonts && Font Awesome -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway|Open+Sans" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<!-- CSS Reset -->
+	<link rel="stylesheet" href="static/css/reset.css">
+
+	<!-- Simple Grid -->
+	<link rel="stylesheet" href="static/css/simple-grid.css">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="static/css/main.css">
+
+
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="body-content">
+			<div class="container">
+				<form id="form" class="form-group" onsubmit="">
+					<p class="font-gray font-raleway form-label">
+						Get your Congressmembers Contact:
+					</p>
+
+					<div class="row">
+						<div class="col-8 m-0">
+							<input name="address" type="text" id="address" class="form-input" placeholder="Your Address">
+							<input name="lat" type="hidden" id="lat" value="">
+							<input name="lng" type="hidden" id="lng" value="">
+							<input name="administrative_area_level_1" type="hidden" id="state" value="">
+						</div>
+
+						<div class="col-4 m-0-tb">
+							<div id="submit" class="form-btn">Search</div>
+						</div>
+					</div>
+				</form>
+
+				<div id="root">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script>
+		$("#address").geocomplete({
+			details: "form"
+		});
+	</script>
+
+	<!-- How to fix webpack?? -->
+	<script src="../../widget.js"></script>
+
+	<!-- reCAPTCHA  -->
+
+</body>
+
+</html>

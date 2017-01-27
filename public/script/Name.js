@@ -11,7 +11,7 @@ export default class SocialLink extends React.Component {
 				<p className="card-chamber">
 					{this.props.chamber}
 				</p>
-				<img className="card-party" src={'./' + this.props.party.toLowerCase() + '.png'}></img>
+				<img className="card-party" src={'./static/img/' + this.props.party.toLowerCase() + '.png'}></img>
 			</div>
 		);
   	}
