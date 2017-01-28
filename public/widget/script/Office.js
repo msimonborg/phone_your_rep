@@ -5,6 +5,10 @@ export default class Office extends React.Component {
 	render() {
 		return (
 			<div className="card-office">
+				<a className="font-white" href={"tel:" + this.props.office.phone}>
+					{this.props.office.phone}
+				</a>
+				<p>{this.props.office.city + " Office"}</p>
 				<a className="font-white" href={this.props.office.v_card_link}>
 					<i className="fa fa-arrow-circle-o-down fa-white" aria-hidden="true"></i>
 					{" Download contact"}
